@@ -1,0 +1,5 @@
+tls_dest_dir: /tmp/tls
+tls_cert_file: tls.crt
+tls_key_file: tls.key
+tls_cert_file_src: /path/to/tls.crt
+tls_key_file_src: /path/to/tls.key

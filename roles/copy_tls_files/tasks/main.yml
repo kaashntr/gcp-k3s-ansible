@@ -1,0 +1,17 @@
+- name: Ensure destination directory exists
+  file:
+    path: "{{ tls_dest_dir }}"
+    state: directory
+    mode: '1777'
+
+- name: Copy TLS certificate file
+  copy:
+    src: "{{ tls_cert_file_src }}"
+    dest: "{{ tls_dest_dir }}/{{ tls_cert_file }}"
+    mode: '0644'
+
+- name: Copy TLS private key file
+  copy:
+    src: "{{ tls_key_file_src }}"
+    dest: "{{ tls_dest_dir }}/{{ tls_key_file }}"
+    mode: '0604'

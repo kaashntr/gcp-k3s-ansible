@@ -1,0 +1,5 @@
+k3s_role: "server"        
+k3s_token: "changeme"          
+k3s_server_ip: ""              
+k3s_version: ""                
+k3s_options: ""
