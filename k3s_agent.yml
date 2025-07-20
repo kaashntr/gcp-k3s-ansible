@@ -1,0 +1,9 @@
+- name: Install K3s agent
+  hosts: agents
+  become: true
+  roles:
+    - role: k3s_setup
+      vars:
+        k3s_role: agent
+        k3s_token: "{{ lookup('file', './tokens/node-token') | trim }}"
+        k3s_options: "--write-kubeconfig-mode 644 --flannel-backend=vxlan"

@@ -1,0 +1,30 @@
+- name: Install K3s server
+  hosts: servers
+  become: true
+  roles:
+    - role: copy_tls_files
+      vars:
+        tls_dest_dir: /tmp/
+        tls_cert_file_src: /home/kaashnrt/Documents/app.class-schedule.pp.ua.crt
+        tls_key_file_src: /home/kaashnrt/Documents/app.class-schedule.pp.ua.key
+        tls_cert_file: app.class-schedule.pp.ua.crt
+        tls_key_file: app.class-schedule.pp.ua.key    
+    - role: k3s_setup
+      vars:
+        k3s_role: server
+        k3s_options: "--write-kubeconfig-mode 644 --flannel-backend=vxlan"
+    - role: helm_setup
+  tasks:
+  - name: Wait for K3s to generate node-token
+    ansible.builtin.wait_for:
+      path: /var/lib/rancher/k3s/server/node-token
+      state: present
+      timeout: 6  
+  - name: Fetch K3s join token to local machine
+    ansible.builtin.fetch:
+      src: /var/lib/rancher/k3s/server/node-token
+      dest: ./tokens/node-token
+      flat: yes
+
+
+    

@@ -1,7 +1,3 @@
 *.ini
-*.yml
-
-!roles/
-!roles/**
 
 tokens/node-token

@@ -1,0 +1,19 @@
+- name: Install K3s server
+  hosts: servers
+  tasks:
+  - name: Clone backend repo
+    ansible.builtin.git:
+      repo: https://github.com/kaashntr/helm-backend.git
+      dest: ~/helm-backend
+  - name: Clone frontend repo
+    ansible.builtin.git:
+      repo: https://github.com/kaashntr/helm-frontend.git
+      dest: ~/helm-frontend
+  - name: Clone redis repo
+    ansible.builtin.git:
+      repo: https://github.com/kaashntr/helm-redis.git
+      dest: ~/helm-redis
+  - name: Clone postgres repo
+    ansible.builtin.git:
+      repo: https://github.com/kaashntr/helm-postgres.git
+      dest: ~/helm-postgres
