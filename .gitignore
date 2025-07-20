@@ -1,0 +1,3 @@
+*.ini
+./*.yml
+./tokens/node-token
