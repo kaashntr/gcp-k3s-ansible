@@ -5,8 +5,8 @@
     - role: copy_tls_files
       vars:
         tls_dest_dir: /tmp/
-        tls_cert_file_src: /home/kaashnrt/Documents/app.class-schedule.pp.ua.crt
-        tls_key_file_src: /home/kaashnrt/Documents/app.class-schedule.pp.ua.key
+        tls_cert_file_src: /home/kaashntr/Documents/app.class-schedule.pp.ua.crt
+        tls_key_file_src: /home/kaashntr/Documents/app.class-schedule.pp.ua.key
         tls_cert_file: app.class-schedule.pp.ua.crt
         tls_key_file: app.class-schedule.pp.ua.key    
     - role: k3s_setup
